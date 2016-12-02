@@ -2,39 +2,26 @@
 
 namespace Browsine;
 
-use Engine/Navigator/Url;
-
 class Browser
 {
-	private $url;
-
-	public function setUrl($url)
+	private $tabManager;
+	
+	public function __construct($url = null)
 	{
-		$this->url = new Url($url);
+		// ...
+		$this->tabManager = new TabManager($url);
 	}
 
-	public function getUrl()
+	public function tab($id, $url = null)
 	{
-		return $this->url->get();
-	}
+		if ($this->tabManager->has($id)) {
+			if (is_null($url)) {
+				return $this->tabManager->get($id);
+			}
 
-	public function go()
-	{
-		
-	}
+			return $this->tabManager->update($id, $url);
+		}
 
-	public function setAddress($url)
-	{
-		$this->setUrl($url);
-	}
-
-	public function getAddress()
-	{
-		return $this->getUrl();
-	}
-
-	public function enter()
-	{
-		$this->go();
+		return $this->tabManager->new($id, $url);
 	}
 }

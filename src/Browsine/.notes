@@ -1,0 +1,8 @@
+<?php
+
+$browser = new Browser('https://countrycode.org');
+// $browser->tab('facebook', 'https://www.facebook.com');
+// $browser->tab('https://www.facebook.com');
+// $browser->tab('countrycode.org');
+// $browser->setConfig('maxtabs', 4);
+$browser->tab('tab');
