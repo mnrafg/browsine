@@ -21,6 +21,9 @@
         "phpunit/phpunit": "^5.6"
     },
     "autoload": {
+        "files": [
+            "src/Browsine/helpers.php"
+        ],
     	"psr-4": {
     		"Browsine\\": "src/Browsine/"
     	}
